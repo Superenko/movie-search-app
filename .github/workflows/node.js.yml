@@ -2,10 +2,15 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main", "master" ]
-
+    branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      siteName:
+        description: 'Service name to deploy'
+        type: string
+        required: false
 jobs:
   build:
     runs-on: ubuntu-latest
